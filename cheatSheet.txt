@@ -1,0 +1,11 @@
+View all dataBases --> show dbs;
+
+Create databse and to switch --> use <dbName>
+
+To view the current database --> db
+
+before using this confirm that you are deleting the right databse
+To delete database --> dbName.dropDatabase()
+
+To show the collection of database --> show collections
+
