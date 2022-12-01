@@ -9,3 +9,83 @@ To delete database --> dbName.dropDatabase()
 
 To show the collection of database --> show collections
 
+To create collection in database --> db.createCollections('nameOfContent')
+
+To drop a collection of database --> db.<collenction name>.drop()
+
+
+
+<--------------------MongoDb command for rows----------------->
+
+*****To show all rows*****
+db.Comments.find()
+
+
+*****To show all rows with incresed height*****
+db.Comments.find().pretty()
+
+
+
+*****Insert rows*****
+
+db.Comments.insert({
+    'name':'Ansh',
+    'lang':'JavaScript',
+    'member_since':5
+    })
+
+
+*****Insert more than one rows*****
+
+db.Comments.insert([{
+    'name':'Ansh',
+    'lang':'JavaScript',
+    'member_since':5
+    },
+    {
+    'name':'2',
+    'lang':'Python',
+    'member_since':8
+    },
+    {
+    'name':'Ansh3',
+    'lang':'cpp',
+    'member_since':9
+    }])
+
+
+*****Insert  Data*****
+
+db.Comments.insert({
+    'name':'Ansh',
+    'lang':'JavaScript',
+    'member_since':5,
+    'date':new Date()
+    })
+
+*****Search in MongoDb database*****
+
+db.Comments.find({'lang':'Python'})
+
+*******To limit the output*******
+
+db.Comments.find().pretty().limit(2)
+
+
+*******To count the number of rows*******
+db.Comments.find().limit(2).count()
+
+
+*******To arrange the number of rows in ascending order on the basis of any elements*******
+db.Comments.find().sort({member_since:1}).pretty()
+
+
+*******To arrange the number of rows in desending order on the basis of any elements*******
+db.Comments.find().sort({member_since:-1}).pretty()
+
+
+*****To find one database*****
+
+db.Comments.findone({'name':'Ansh'})
+
+
