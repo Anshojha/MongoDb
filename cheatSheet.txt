@@ -89,3 +89,17 @@ db.Comments.find().sort({member_since:-1}).pretty()
 db.Comments.findone({'name':'Ansh'})
 
 
+******Find the rows matching the object*****
+
+db.<collectionName>.findOne({'name':'NameOfFiled'})
+
+
+
+******To update a rows*******
+
+db.Comments.update({name:'Aditya'},
+    {
+     'name':'Aditya',
+    'lang':'JavaScript',
+    'member_since':'10'
+})
