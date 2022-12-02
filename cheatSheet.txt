@@ -103,3 +103,12 @@ db.Comments.update({name:'Aditya'},
     'lang':'JavaScript',
     'member_since':'10'
 })
+
+
+******* To update a row if not avilable by making upsert:True*****
+db.Comments.update({name:'AnyName'},
+    {
+     'name':'Ansh',
+    'lang':'JavaScript',
+    'member_since':5
+},{upsert:true});
