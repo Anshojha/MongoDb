@@ -6,8 +6,15 @@ mongoose.connect("mongodb://localhost:27017/fruitDb",{useNewUrlParser:true});
 
 
 const fruitSchema = new mongoose.Schema({
-    name : String,
-    rating : Number,
+    name : {
+        type : String,
+        required : [true , " I am requesting you to ente the name of fruit"],
+    },
+    rating : {
+        type: Number,
+        min :  1,
+        max : 10
+    },
     review : String 
 });
 
@@ -15,43 +22,42 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model("Fruit", fruitSchema);
 
 const fruit  = new Fruit ({
-    name : "Apple",
-    rating : 7,
-    review : "Preety Solid"
+    rating : 4,
+    review : "Preety Solid love to eat"
 });
 
 
-// fruit.save();
+fruit.save();       
 
-const personSchema = new mongoose.Schema({
-    name : String,
-    age : Number
-});
+// const personSchema = new mongoose.Schema({
+//     name : String,
+//     age : Number
+// });
 
-const Person = mongoose.model("Person", personSchema);
-const person = new Person ({
-    name : "Aman",
-    age :"37"
-});
+// const Person = mongoose.model("Person", personSchema);
+// const person = new Person ({
+//     name : "Aman",
+//     age :"37"
+// });
 
 
-person.save();
+// person.save();
 
-const kiwi = new Fruit({
-    name : "kiwi",
-    score : 10,
-    review : "The best fruit to eat"
-});
-const orange = new Fruit({
-    name : "orange",
-    score : 11,
-    review : "The best fruit to eat and repeat"
-});
-const grape = new Fruit({
-    name : "grapes",
-    score : 12,
-    review : "The best fruit to eat"
-});
+// const kiwi = new Fruit({
+//     name : "kiwi",
+//     score : 10,
+//     review : "The best fruit to eat"
+// });
+// const orange = new Fruit({
+//     name : "orange",
+//     score : 11,
+//     review : "The best fruit to eat and repeat"
+// });
+// const grape = new Fruit({
+//     name : "grapes",
+//     score : 12,
+//     review : "The best fruit to eat"
+// });
 
 
 // Fruit.insertMany([kiwi , orange , grape], function(err){
@@ -60,7 +66,7 @@ const grape = new Fruit({
 //     }else{
 //         console.log("Succcfully added the fruits");
 //     }
-// })
+//  })
 
 Fruit.find(function(err , fruits){
     if(err){
@@ -74,3 +80,4 @@ Fruit.find(function(err , fruits){
     }
 
 });
+
