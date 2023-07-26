@@ -81,3 +81,20 @@ Fruit.find(function(err , fruits){
 
 });
 
+
+// Fruit.updateOne({_id:"642fb66fdaffe80a5aac00a7"} , {name : "Peach"} ,function (err){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("Updated Success Fully");
+//     }
+// });
+
+
+Fruit.deleteOne({name : "Apple"}, function(err){
+    if(err){
+        console.log(err);
+    }else{
+        console.log( "Succefully deleted")
+    }
+});
